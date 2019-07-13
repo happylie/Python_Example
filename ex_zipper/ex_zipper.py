@@ -39,8 +39,8 @@ class Zipper:
         command += [dst] + [src]
         try:
             ret = subprocess.call(command)
-        except Exception, e:
-            sys.stderr.write("exception dir_zip function : %s\n", str(e))
+        except Exception as err:
+            sys.stderr.write("exception file_zip function : %s\n", str(err))
             return False
         else:
             if ret != 0:
@@ -67,8 +67,8 @@ class Zipper:
         command += [dst] + glob.glob(src + "/*")
         try:
             ret = subprocess.call(command)
-        except Exception, e:
-            sys.stderr.write("exception dir_zip function : %s\n", str(e))
+        except Exception as err:
+            sys.stderr.write("exception dir_zip function : %s\n", str(err))
             return False
         else:
             if ret != 0:
@@ -77,7 +77,7 @@ class Zipper:
         pass
 
 
-if __name__ == '__main__':
-    zipper = Zipper()
-    zipper.zip_file('/test/test.txt', password='1234')
-    zipper.zip_dir('/test/tmp', password='1234')
+# if __name__ == '__main__':
+#     zipper = Zipper()
+#     zipper.zip_file('/test/test.txt', password='1234')
+#     zipper.zip_dir('/test/tmp', password='1234')
